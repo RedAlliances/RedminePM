@@ -6,8 +6,8 @@ var labelDayPlural = <%= raw_json l(:label_day_plural) %>;
 var allProjects = <%= raw_json query.all_projects_values %>;
 $(document).ready(function(){
   initFilters();
-  $('td.subject').each(function(){var text = $(this).html(); var length = $(this).html().length; if (length > 58) {text = text.substr(0,58-1)+'...';} $(this).html(text)});
-  $('td.parent').each(function(){var html =$(this).html().split(':')[0]; $(this).html(html)});
+  $('td.subject').each(function(){var text = $(this).html(); var length = $(this).html().length; if (length > 58) {text = text.substr(0,58-1)+'...';} $(this).html(text)}); 
+  $('td.parent').each(function(){var html =$(this).html().split(':')[0]; $(this).html(html)}); 
   <% query.filters.each do |field, options| %>
   addFilter("<%= field %>", <%= raw_json query.operator_for(field) %>, <%= raw_json query.values_for(field) %>);
   <% end %>

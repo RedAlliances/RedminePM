@@ -708,6 +708,16 @@ class Issue < ActiveRecord::Base
   def overdue?
     !due_date.nil? && (due_date < Date.today) && !status.is_closed?
   end
+  
+  # Returns true if the issue has no overdue time
+  def no_overdue?
+    due_date.nil?
+  end
+  
+  # Returns true if the issue's overdue time is today
+  def on_overdue?
+    !due_date.nil? && (due_date == Date.today) && !status.is_closed?
+  end
 
   # Is the amount of work done less than it should for the due date
   def behind_schedule?
@@ -1090,6 +1100,8 @@ class Issue < ActiveRecord::Base
     s = "issue tracker-#{tracker_id} status-#{status_id} #{priority.try(:css_classes)}"
     s << ' closed' if closed?
     s << ' overdue' if overdue?
+	s << ' no_overdue' if no_overdue?
+    s << ' on_overdue' if on_overdue?
     s << ' child' if child?
     s << ' parent' unless leaf?
     s << ' private' if is_private?

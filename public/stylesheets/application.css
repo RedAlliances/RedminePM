@@ -968,6 +968,8 @@ a.close-icon:hover {background-image:url('../images/close_hl.png');}
 .version-behind-schedule a, .issue-behind-schedule a {color: #f66914;}
 .version-overdue a, .issue-overdue a, .project-overdue a {color: #f00;}
 tr.overdue {background-color:#A10048;}
+tr.no_overdue {background-color:#B27D00;}
+tr.on_overdue {background-color:#6BB200;}
 
 /***** Icons *****/
 .icon {

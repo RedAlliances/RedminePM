@@ -25,6 +25,7 @@ class MyController < ApplicationController
   helper :custom_fields
 
   BLOCKS = { 'issuesassignedtome' => :label_assigned_to_me_issues,
+  			 'issuesassignedtomygroup' => :label_assigned_to_mygroup_issues,
              'issuesreportedbyme' => :label_reported_issues,
              'issueswatched' => :label_watched_issues,
              'news' => :label_news_latest,
